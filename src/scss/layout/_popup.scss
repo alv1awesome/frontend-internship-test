@@ -121,6 +121,11 @@
         background-color: #000000;
         color: #ffffff;
         cursor: pointer;
+        transition: .3s ease-in-out;
+
+        &:hover {
+            background-color: #fc888e;
+        }
     }
 
 }
