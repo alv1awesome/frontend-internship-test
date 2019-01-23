@@ -9,6 +9,16 @@ window.addEventListener("DOMContentLoaded", () => {
   const showPoup = () => popup.classList.add("is-visible");
   const hidePopup = () => popup.classList.remove("is-visible");
 
+  const displaySuccesMsg = () => {
+    const sectionMain = document.querySelector(".main");
+    btnOpen.style.display = "none";
+    const msg = document.createElement("h1");
+    msg.style.fontFamily = "Lobster, cursive";
+    msg.style.fontSize = "42px";
+    msg.textContent = "Thank You!";
+    sectionMain.appendChild(msg);
+  };
+
   const formSubmit = e => {
     e.preventDefault();
     const emailInput = document.getElementById("popupEmail").value;
@@ -23,6 +33,11 @@ window.addEventListener("DOMContentLoaded", () => {
       alert("Please fill password field");
     } else if (!checkboxInput) {
       alert("Please accept the terms and conditions");
+    } else {
+      setTimeout(() => {
+        hidePopup();
+        displaySuccesMsg();
+      }, 3000);
     }
   };
 
