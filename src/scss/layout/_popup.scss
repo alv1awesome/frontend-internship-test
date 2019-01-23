@@ -1,0 +1,126 @@
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.7);
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+
+    &.is-visible {
+        visibility: visible;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+
+    &__name {
+        font-family: 'Lobster', cursive;
+        align-self: center;
+    }
+
+    &__form {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__form-group {
+        display: flex;
+        flex-direction: column;
+
+        &:not(:last-of-type) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__label {
+        display: none;
+    }
+
+    &__input {
+        font-family: inherit;
+        padding: 14px 20px;
+        border: 1px solid #000000;
+    }
+
+    &__checkbox-label {
+        display: flex;
+        user-select: none;
+    }
+
+    &__checkbox-input {
+        display: none;
+    }
+
+    &__checkbox-button {
+        align-self: center;
+        position: relative;
+        min-width: 20px;
+        min-height: 20px;
+        border: 1px solid #000000;
+        margin-right: 10px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            height: 6px;
+            width: 12px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -70%) rotate(-45deg);
+            border-left: 3px solid #000000;
+            border-bottom: 3px solid #000000;
+            opacity: 0;
+
+        }
+    }
+
+    &__checkbox-input:checked~&__checkbox-label &__checkbox-button::after {
+        opacity: 1;
+    }
+
+    &__close-btn {
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: black;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    &__close-icon {
+        position: absolute;
+        width: 60%;
+        height: 4px;
+        top: 50%;
+        left: 50%;
+        background-color: #ffffff;
+        border-radius: 2px;
+
+        &:nth-of-type(1) {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+
+        &:nth-of-type(2) {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+    }
+
+    .btn-submit {
+        font-family: inherit;
+        text-transform: uppercase;
+        border: none;
+        padding: 14px 0;
+        background-color: #000000;
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+}
